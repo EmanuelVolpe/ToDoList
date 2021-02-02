@@ -14,11 +14,11 @@ function showTasks()
             <table class='container table table-success'>
                 <thead>
                     <tr>
-                    <th>TITULO</th>
-                    <th>DESCRIPCION</th>
-                    <th>PRIORIDAD</th>
-                    <th>FINALIZADA</th>
-                    <th>ACCION</th>
+                        <th>TITULO</th>
+                        <th>DESCRIPCION</th>
+                        <th>PRIORIDAD</th>
+                        <th>FINALIZADA</th>
+                        <th>ELIMINAR - FINALIZAR</th>
                     </tr>
                 </thead>
                 <tbody>";
@@ -28,7 +28,7 @@ function showTasks()
                                 <td>$task->descripcion</td>
                                 <td>$task->prioridad</td>
                                 <td>$task->finalizada</td>
-                                <td><a class='btn btn-danger btn-sm' href='eliminar/$task->id_tarea'>ELIMINAR</a>  <a class='btn btn-success btn-sm' href='actualizar/$task->id_tarea'>MODIFICAR</a></td>
+                                <td><a class='btn btn-danger btn-sm' href='eliminar/$task->id_tarea'>ELIMINAR</a> - <a class='btn btn-success btn-sm' href='actualizar/$task->id_tarea'>MODIFICAR</a></td>
                             </tr>";
     }
     echo "</tbody></table>";
