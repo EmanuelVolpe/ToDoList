@@ -33,6 +33,11 @@
             $id = $params[1];
             $controller->updateTask($id);
             break;
+        case 'detalle':
+            $controller = new TaskController(); 
+            $id = $params[1];
+            $controller->detailTask($id);
+            break;
         default:
             $controller = new TaskController();
             $controller->mostrarError();

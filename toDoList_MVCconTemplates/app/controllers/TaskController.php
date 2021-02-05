@@ -42,6 +42,11 @@
             header("Location: " . BASE_URL);
         }
 
+        function detailTask($id) {
+            $task = $this->model->getTask($id);
+            $this->view->showDetailTask($task);
+        }
+
         function mostrarError() {
             $this->view->showError('404 Page not found');
         }
