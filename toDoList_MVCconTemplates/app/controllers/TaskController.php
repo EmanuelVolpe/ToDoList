@@ -11,8 +11,17 @@
             $this->model = new TaskModel();
             $this->view = new TaskView();
         }
+
+        function getLogged(){
+            session_start();
+            if(!isset($_SESSION["id"])){
+                header("Location: ".BASE_URL."login");
+                die();
+            }
+        }
         
-        function showTasks(){
+        function showTasks() {
+            $this->getLogged();
             $tasks = $this->model->getTasks();
             $this->view->showTasks($tasks);
         }
@@ -23,32 +32,28 @@
             $prioridad = $_POST["prioridad"];
 
             if (empty($titulo) || empty($descripcion) || empty($prioridad)) {
-                $this->view->showError("Faltan Datos Obligatorios");
+                $this->view->showTaskError("Faltan Datos Obligatorios");
                 //echo ("<a href='insertar'>VOLVER</a>");
                 die();
             }
 
             $this->model->insertTask($titulo, $descripcion, $prioridad);
-            header("Location: " . BASE_URL);
+            header("Location: ".BASE_URL."listar");
         }
 
         function deleteTask($id) {
             $this->model->removeTask($id);
-            header("Location: " . BASE_URL);  
+            header("Location: ".BASE_URL."listar");  
         }
 
         function updateTask($id) {
             $this->model->finalizeTask($id);
-            header("Location: " . BASE_URL);
+            header("Location: ".BASE_URL."listar");
         }
 
         function detailTask($id) {
             $task = $this->model->getTask($id);
             $this->view->showDetailTask($task);
-        }
-
-        function mostrarError() {
-            $this->view->showError('404 Page not found');
         }
         
     }

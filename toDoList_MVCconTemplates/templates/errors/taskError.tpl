@@ -12,11 +12,11 @@
     />
     <title>{$pagina}</title>
 </head>
-{include "header.tpl"}
+    {include "header.tpl"}
 
-    <h1>{$error}</h1>
-    <h2>{$msgError}</h2>
+        <h1>{$error}</h1>
+        <h2>{$msgError}</h2>
 
-    <a class='btn btn-primary btn-sm float-right' href='listar'>VOLVER</a>
+        <a class='btn btn-primary btn-sm float-right' href='listar'>VOLVER</a>
 
-{include "footer.tpl"}
+    {include "footer.tpl"}

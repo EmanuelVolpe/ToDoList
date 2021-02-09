@@ -7,11 +7,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link" href="listar">Home</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav d-flex w-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="listar">TAREAS</a>
+                    </li>
+                    {if isset($smarty.session.nombre)}
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link" href="logout">{$smarty.session.nombre} (LOGOUT)</a>
+                        </li>
+                    {/if}
+                </ul>
             </div>
         </nav>
     </header>

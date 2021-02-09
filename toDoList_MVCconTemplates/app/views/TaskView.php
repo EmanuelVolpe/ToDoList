@@ -23,10 +23,11 @@
             $this->smarty->display('templates/detailTask.tpl');
         }
 
-        function showError($msgError) {
+        function showTaskError($msgError) {
             $this->smarty->assign('pagina',"Error");
             $this->smarty->assign('error',"ERRORRRRRRRRRR");
             $this->smarty->assign('msgError', $msgError);
-            $this->smarty->display('templates/error.tpl');
+            $this->smarty->display('templates/errors/taskError.tpl');
         }
+
     }
