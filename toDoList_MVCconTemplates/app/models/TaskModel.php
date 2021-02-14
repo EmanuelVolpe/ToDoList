@@ -23,6 +23,7 @@
         function insertTask($titulo, $descripcion, $prioridad) {
             $query = $this->db->prepare('INSERT INTO tareas (titulo, descripcion, prioridad) VALUES (?,?,?)');
             $query->execute([$titulo, $descripcion, $prioridad]);
+            return $this->db->lastInsertId();
         }
 
         function removeTask($id) {
@@ -30,9 +31,10 @@
             $query->execute([$id]);
         }
 
-        function finalizeTask($id) {
-            $query = $this->db->prepare('UPDATE tareas SET finalizada = 1 WHERE id_tarea=?');
-            $query->execute([$id]);
+        function updateTask($titulo, $descripcion, $prioridad, $id) {
+            $query = $this->db->prepare('UPDATE tareas SET titulo = ?, descripcion = ?, prioridad = ? WHERE id_tarea=?');
+            $query->execute([$titulo, $descripcion, $prioridad, $id]);
+            return $query;
         }
 
         function getTask($id){

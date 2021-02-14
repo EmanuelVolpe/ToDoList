@@ -49,7 +49,7 @@
             $id = $params[1];
             $controller->deleteTask($id);
             break;
-        case 'actualizar':
+        case 'actualizar'://falta acomodarlo para recibir mas de un parametro
             $controller = new TaskController(); 
             $id = $params[1];
             $controller->updateTask($id);
@@ -58,10 +58,6 @@
             $controller = new TaskController(); 
             $id = $params[1];
             $controller->detailTask($id);
-            break;
-        default:
-            $controller = new TaskController();
-            $controller->mostrarError();
             break;
     }
 
