@@ -53,9 +53,10 @@ class ApiTaskController{
             $descripcion = $body->descripcion;
             $prioridad = $body->prioridad;
 
-            if(empty($prioridad) || $prioridad < 1 || $prioridad >5)
+            if(empty($prioridad) || $prioridad < "1" || $prioridad > "5"){
                   $this->view->response("No se pudo agregar la tarea", 404);
                   die();
+            }
 
             $idTarea = $this->model->insertTask($titulo, $descripcion, $prioridad);
 
